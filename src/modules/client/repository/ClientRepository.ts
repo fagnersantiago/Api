@@ -1,6 +1,6 @@
 import { getRepository, Repository } from "typeorm";
 import Client from "../infra/typeorm/entities/Client";
-import ICreateClientDTO from "../dtos/ICreateDTO";
+import ICreateClientDTO from "../dtos/ICreateClientDTO";
 import IClientRepository from "./IClientRepository";
 
 class ClientRepository implements IClientRepository {

@@ -5,6 +5,7 @@ import {
   CreateDateColumn,
   OneToOne,
   JoinColumn,
+  ManyToOne,
 } from "typeorm";
 import { v4 as uuidv4 } from "uuid";
 import City from "../../../../city/infra/typeorm/entities/City";
@@ -20,16 +21,18 @@ class Client {
   @Column()
   gender: string;
 
-  @Column()
+  @Column("date", { name: "birth_date" })
   birth_date: Date;
 
   @Column()
   age: string;
 
-  @OneToOne(() => City, (client) => client.name)
+  @ManyToOne(() => City, (city) => city.id)
   @JoinColumn({ name: "city_id" })
-  @JoinColumn({ name: "name" })
   city: City;
+
+  @Column()
+  city_id: string;
 
   @CreateDateColumn()
   created_at: Date;

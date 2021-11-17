@@ -1,4 +1,4 @@
-interface ICreateCityDTO {
+interface ICreateClientDTO {
   id?: string;
   full_name: string;
   gender: string;
@@ -7,4 +7,4 @@ interface ICreateCityDTO {
   city_id: string;
 }
 
-export default ICreateCityDTO;
+export default ICreateClientDTO;

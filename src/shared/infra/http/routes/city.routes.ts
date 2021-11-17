@@ -6,5 +6,6 @@ const cityRoute = Router();
 const createCityController = new CreateCityController();
 
 cityRoute.post("/", createCityController.handle);
+cityRoute.get("");
 
 export default cityRoute;

@@ -1,7 +1,6 @@
-import { truncate } from "fs";
 import { MigrationInterface, QueryRunner, Table } from "typeorm";
 
-export class State1636985644823 implements MigrationInterface {
+export class CreateTableClient1637113184172 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
