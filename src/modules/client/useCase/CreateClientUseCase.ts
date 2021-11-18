@@ -1,7 +1,7 @@
 import { inject, injectable } from "tsyringe";
-import AppError from "../../../shared/Errors/AppError";
 import Client from "../infra/typeorm/entities/Client";
 import IClientRepository from "../repository/IClientRepository";
+import AppError from "../../../shared/Errors/AppError";
 
 interface IRequest {
   id?: string;
@@ -28,11 +28,13 @@ class CreateClientUseCase {
   }: IRequest): Promise<Client> {
     const clientAlreadyExist = await this.clientRepository.findById(id);
 
+    console.log(clientAlreadyExist);
+
     if (clientAlreadyExist) {
       throw new AppError("Client Already exists");
     }
 
-    const client = this.clientRepository.create({
+    const client = await this.clientRepository.create({
       full_name,
       gender,
       birth_date,

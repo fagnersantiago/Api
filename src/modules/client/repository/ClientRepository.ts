@@ -30,11 +30,13 @@ class ClientRepository implements IClientRepository {
   }
 
   async findById(id: string): Promise<Client> {
-    return this.repository.findOne(id);
+    const clientId = await this.repository.findOne(id);
+
+    return clientId;
   }
 
-  async findByName(name: string): Promise<Client> {
-    const client = this.repository.findOne(name);
+  async findByName(full_name: string): Promise<Client> {
+    const client = await this.repository.findOne(full_name);
     return client;
   }
 }

@@ -28,10 +28,15 @@ class CityRepository implements ICityRepository {
     return city;
   }
 
-  async findCityByState(name: string): Promise<City[]> {
-    const cityByState = await this.repository.find({ name });
+  // async findCityByState(state: string): Promise<City[]> {
+  //   const findState = await this.repository.find({ state });
 
-    return cityByState;
+  //   return findState;
+  // }
+
+  async list(): Promise<City[]> {
+    const list = await this.repository.find();
+    return list;
   }
 }
 
