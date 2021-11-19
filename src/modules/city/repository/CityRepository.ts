@@ -1,4 +1,4 @@
-import { getRepository, Repository } from "typeorm";
+import { getCustomRepository, getRepository, Repository } from "typeorm";
 import City from "../infra/typeorm/entities/City";
 import ICreateCityDTO from "../dtos/ICreateCityDtos";
 import ICityRepository from "./ICityRepository";
@@ -21,11 +21,13 @@ class CityRepository implements ICityRepository {
   }
 
   async findCityByName(name: string): Promise<City> {
-    const city = await this.repository.findOne({
-      name,
-    });
+    const city = await this.repository
+      .createQueryBuilder("city")
+      .where("city.name = :name", { name })
+      //.orWhere("city.state = :state", { state})
+      .getMany();
 
-    return city;
+    return;
   }
 
   // async findCityByState(state: string): Promise<City[]> {

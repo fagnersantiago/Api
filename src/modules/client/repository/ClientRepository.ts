@@ -1,7 +1,7 @@
 import { getRepository, Repository } from "typeorm";
-import Client from "../infra/typeorm/entities/Client";
 import ICreateClientDTO from "../dtos/ICreateClientDTO";
 import IClientRepository from "./IClientRepository";
+import Client from "../infra/typeorm/entities/Client";
 
 class ClientRepository implements IClientRepository {
   private repository: Repository<Client>;
@@ -15,18 +15,18 @@ class ClientRepository implements IClientRepository {
     birth_date,
     age,
     city_id,
-  }: ICreateClientDTO): Promise<Client> {
+    id,
+  }: ICreateClientDTO): Promise<void> {
     const client = this.repository.create({
       full_name,
       gender,
       birth_date,
       age,
       city_id,
+      id,
     });
 
     await this.repository.save(client);
-
-    return client;
   }
 
   async findById(id: string): Promise<Client> {

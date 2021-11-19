@@ -8,6 +8,6 @@ const createCityController = new CreateCityController();
 const listCityController = new ListCityController();
 
 cityRoute.post("/", createCityController.handle);
-cityRoute.get("", listCityController.handle);
+cityRoute.get("/", listCityController.handle);
 
 export default cityRoute;

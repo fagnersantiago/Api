@@ -1,17 +1,18 @@
 import { inject, injectable } from "tsyringe";
-import City from "../../infra/typeorm/entities/City";
 import ICityRepository from "../../repository/ICityRepository";
+import City from "../../infra/typeorm/entities/City";
 
 @injectable()
 class ListCityUseCase {
   constructor(
     @inject("CityRepository")
-    private listCityRepository: ICityRepository
+    private cityRepository: ICityRepository
   ) {}
-  async execute(): Promise<City[]> {
-    const listCity = await this.listCityRepository.list();
 
-    return listCity;
+  async execute(name: string): Promise<void> {
+    const city = await this.cityRepository.findCityByName(name);
+
+    return city;
   }
 }
 
