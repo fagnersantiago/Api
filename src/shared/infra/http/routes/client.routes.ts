@@ -1,5 +1,5 @@
 import { Router } from "express";
-import CreateClientController from "../../../../modules/client/useCase/CreateClientController";
+import CreateClientController from "../../../../modules/client/useCase/createClient/CreateClientController";
 import DeleteClienteController from "../../../../modules/client/useCase/deleteClient/DeletClientController";
 import ListClientController from "../../../../modules/client/useCase/listClient/LisClientController";
 import ListClientByIdController from "../../../../modules/client/useCase/listClient/ListClientByIdController";
