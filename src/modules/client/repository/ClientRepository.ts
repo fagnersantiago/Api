@@ -16,7 +16,7 @@ class ClientRepository implements IClientRepository {
     age,
     city_id,
     id,
-  }: ICreateClientDTO): Promise<void> {
+  }: ICreateClientDTO): Promise<Client> {
     const client = this.repository.create({
       full_name,
       gender,
@@ -27,16 +27,33 @@ class ClientRepository implements IClientRepository {
     });
 
     await this.repository.save(client);
+
+    return client;
   }
 
   async findById(id: string): Promise<Client> {
-    const clientId = await this.repository.findOne(id);
+    const clientId = await this.repository.findOne({ id });
 
     return clientId;
   }
 
   async findByName(full_name: string): Promise<Client> {
-    const client = await this.repository.findOne(full_name);
+    const client = await this.repository.findOne({ full_name });
+
+    return client;
+  }
+
+  async delete(id: string): Promise<void> {
+    await this.repository.delete(id);
+  }
+  async update(id: string, full_name: string): Promise<Client> {
+    const client = this.repository.create({
+      id,
+      full_name,
+    });
+
+    await this.repository.save(client);
+
     return client;
   }
 }

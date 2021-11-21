@@ -24,21 +24,22 @@ class CityRepository implements ICityRepository {
     const city = await this.repository
       .createQueryBuilder("city")
       .where("city.name = :name", { name })
-      //.orWhere("city.state = :state", { state})
-      .getMany();
+      //.orWhere("city.state = :state", { state })
+      .getOne();
 
-    return;
+    return city;
   }
 
-  // async findCityByState(state: string): Promise<City[]> {
-  //   const findState = await this.repository.find({ state });
+  async listCityByState(state: string): Promise<City[]> {
+    const listCyteByState = await this.repository.find({ state });
 
-  //   return findState;
-  // }
+    return listCyteByState;
+  }
 
-  async list(): Promise<City[]> {
-    const list = await this.repository.find();
-    return list;
+  async listCityByName(name: string): Promise<City> {
+    const listCityByName = await this.repository.findOne({ name });
+
+    return listCityByName;
   }
 }
 

@@ -1,11 +1,11 @@
 import ICreateCityDTO from "../../city/dtos/ICreateCityDtos";
 import City from "../infra/typeorm/entities/City";
 
-export interface ICityRepository {
+interface ICityRepository {
   create(data: ICreateCityDTO): Promise<City>;
   findCityByName(name: string): Promise<City>;
-  // findState(state: string): Promise<City[]>;
-  list(): Promise<City[]>;
+  listCityByState(state: string): Promise<City[]>;
+  listCityByName(name: string): Promise<City>;
 }
 
 export default ICityRepository;

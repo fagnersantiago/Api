@@ -3,24 +3,20 @@ import ICityRepository from "../../repository/ICityRepository";
 import City from "../../infra/typeorm/entities/City";
 import AppError from "../../../../shared/Errors/AppError";
 
-interface IRequest {
-  name?: string | undefined;
-  state?: string | undefined;
-}
 @injectable()
-class ListCityUseCase {
+class ListStateUseCase {
   constructor(
     @inject("CityRepository")
     private cityRepository: ICityRepository
   ) {}
-  async execute(name: string): Promise<City> {
-    const city = await this.cityRepository.findCityByName(name);
+  async execute(state: string): Promise<City> {
+    const listState = await this.cityRepository.listCityByState(state);
 
-    if (!city) {
-      throw new AppError("City was not found!");
+    if (!state) {
+      throw new AppError("State was not found!");
     }
-    return city;
+    return listState;
   }
 }
 
-export default ListCityUseCase;
+export default ListStateUseCase;
