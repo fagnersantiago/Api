@@ -9,7 +9,7 @@ class ListCityUseCase {
     private cityRepository: ICityRepository
   ) {}
 
-  async execute(name: string): Promise<void> {
+  async execute(name: string): Promise<City> {
     const city = await this.cityRepository.findCityByName(name);
 
     return city;
