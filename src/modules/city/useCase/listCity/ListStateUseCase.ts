@@ -12,7 +12,7 @@ class ListStateUseCase {
   async execute(state: string): Promise<City> {
     const listState = await this.cityRepository.listCityByState(state);
 
-    if (!state) {
+    if (!listState) {
       throw new AppError("State was not found!");
     }
     return listState;

@@ -28,32 +28,42 @@ $ yarn dev
 
 ### 🎲 Rotas da entidade Cidade
 
-Cadastro de Cidade: Método: Post
+# Cadastro de Cidade: Método: Post
+
 Rota: http://localhost:3333/city
 
-Listar Cidade pelo Nome: Método: Get
+#Listar Cidade pelo Nome: Método: Get
+
 Rota: http://localhost:3333/city
 
-Listar Cidade pelo Estado: Método: Get
+# Listar Cidade pelo Estado: Método: Get
+
 Rota: http://localhost:3333/city/state
 
 ### 🎲 Rotas da entidade Cliente
 
-Cadastro de Cleint: Método: Post
+# Cadastro de Client: Método: Post
+
 Rota: http://localhost:3333/client
 
-Listar Client pelo Nome: Método: Get
+# Listar Client pelo Nome: Método: Get
+
 Rota: http://localhost:3333/client/
+
 obs: nessa rota é necessário passar o nome do cliente pelo query params
 
-Listar Client pelo id: Método: Get
+# Listar Client pelo id: Método: Get
+
 Rota: http://localhost:3333/client/:id
+
 obs: nessa rota é necessário passar o id no hearder da requisação
 
-Alterar nome do Client: Método: Patch
+# Alterar nome do Client: Método: Patch
+
 Rota: http://localhost:3333/client/update/:id
 
-Deletar Client: Método: Delete
+# Deletar Client: Método: Delete
+
 Rota: http://localhost:3333/client/delete/:id
 
 ### 🛠 Tecnologias
