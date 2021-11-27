@@ -1,3 +1,4 @@
+import "reflect-metadata";
 import { inject, injectable } from "tsyringe";
 import City from "../../infra/typeorm/entities/City";
 import ICityRepository from "../../repository/ICityRepository";
