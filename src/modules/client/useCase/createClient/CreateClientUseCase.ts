@@ -22,8 +22,6 @@ class CreateClientUseCase {
       full_name
     );
 
-    console.log(clientAlreadyExist);
-
     if (clientAlreadyExist) {
       throw new AppError("Client Already exists");
     }
