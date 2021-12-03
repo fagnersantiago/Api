@@ -34,7 +34,7 @@ describe("Create Client", () => {
     expect(clientCreated).toHaveProperty("id");
   });
 
-  it("Should not create a new client with same full_name", () => {
+  it("Should not be create a new client with same full_name", () => {
     expect(async () => {
       const client = {
         full_name: "Client Test",
