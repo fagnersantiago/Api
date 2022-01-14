@@ -10,7 +10,6 @@ class CreateClientInMemory implements IClientRepository {
     birth_date,
     age,
     city_id,
-    id,
   }): Promise<Client> {
     const client = new Client();
 
@@ -20,7 +19,6 @@ class CreateClientInMemory implements IClientRepository {
       birth_date,
       age,
       city_id,
-      id,
     });
 
     this.clientRepoitory.push(client);
