@@ -1,5 +1,3 @@
-import ClientRepository from "../../repository/ClientRepository";
-import IClientRepository from "../../repository/IClientRepository";
 import CreateClientInMemory from "../../repository/inMemory/CreateClientInMemory";
 import DeleteClientUseCase from "./DeleteClientUseCase";
 import CreateClientUseCase from "../createClient/CreateClientUseCase";
