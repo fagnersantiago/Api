@@ -6,6 +6,7 @@ import AppError from "../../../../shared/Errors/AppError";
 let createClientUseCase: CreateClientUseCase;
 let clientCreateInMemory: CreateClientInMemory;
 let deleteClienteUseCase: DeleteClientUseCase;
+
 describe("Delete Client", () => {
   beforeEach(() => {
     clientCreateInMemory = new CreateClientInMemory();
@@ -36,7 +37,7 @@ describe("Delete Client", () => {
   });
   it("Should not be able to delete non-existent client", async () => {
     expect(async () => {
-      await deleteClienteUseCase.execute("112125548");
+      await deleteClienteUseCase.execute("id");
     }).rejects.toBeInstanceOf(AppError);
   });
 });

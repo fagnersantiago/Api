@@ -24,7 +24,6 @@ class UpdateClientUseCase {
     }
 
     const client = await this.clientRepository.update(id, full_name);
-    console.log(clientId);
 
     return client;
   }
